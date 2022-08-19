@@ -7,7 +7,7 @@ let logger = require('morgan');
 const helmet = require("helmet");
 const bodyParser = require('body-parser');
 
-// Deploy Heroku - uncomment path
+// Deploy Heroku - uncomment path for normal use
 //let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let registerRouter = require('./routes/register');
@@ -26,12 +26,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
+
 // imported
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-// Deploy Heroku - uncomment path
+// Deploy Heroku - uncomment path for normal use
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
